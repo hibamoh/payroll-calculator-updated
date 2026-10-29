@@ -7,9 +7,30 @@ import java.util.regex.Pattern;
 public class payrollCalc {
     public static void main(String[] args) {
 
-        String fileName = "src/main/resources/employees.csv";
+        Scanner myScanner = new Scanner(System.in);
+
+        System.out.println("enter the name of the file to process: ");
+        String userInput = myScanner.nextLine();
+        String fileName = "src/main/java/resources/" + userInput;
+
+        System.out.println(" what is the name of the payroll file to create ");
+        String userInput2 = myScanner.nextLine();
+        String payrollFile = "src/main/java/resources/" + userInput2;
 
         try {
+            FileWriter payrollWriter = new FileWriter(payrollFile);
+            BufferedWriter bufWriter = new BufferedWriter(payrollWriter);
+
+
+        } catch (IOException e) {
+            System.out.println("er that file does not exist");
+
+        }
+
+
+      /*   this is to read the files and print them
+
+       try {
            FileReader fileReader = new FileReader(fileName);
            BufferedReader bufferedReader = new BufferedReader(fileReader);
 
@@ -44,5 +65,8 @@ public class payrollCalc {
         Employee employee = new Employee(id,name,hoursWorked,payRate);
 
         return employee;
+    }
+
+       */
     }
 }
